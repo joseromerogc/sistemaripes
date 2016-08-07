@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Acme\DemoBundle\Entity\Ciudades" table="ciudades">
+    <indexes>
+      <index name="id_estado" columns="id_estado"/>
+    </indexes>
+    <id name="idCiudad" type="integer" column="id_ciudad">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="ciudad" type="string" column="ciudad" length="200" nullable="false"/>
+    <field name="capital" type="boolean" column="capital" nullable="false"/>
+    <many-to-one field="idEstado" target-entity="Estados">
+      <join-columns>
+        <join-column name="id_estado" referenced-column-name="id_estado"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

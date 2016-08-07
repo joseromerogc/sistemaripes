@@ -1,0 +1,4 @@
+Acme\ProductBundle\Entity\Product:
+    properties:
+      name:
+        - NotBlank: ~

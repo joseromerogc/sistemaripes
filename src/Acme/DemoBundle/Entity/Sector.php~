@@ -1,0 +1,39 @@
+<?php
+
+namespace Acme\DemoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Sector
+ *
+ * @ORM\Table(name="sector")
+ * @ORM\Entity
+ */
+class Sector
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_par", type="integer", nullable=false)
+     */
+    private $idPar;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom_sec", type="string", length=40, nullable=false)
+     */
+    private $nomSec;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_sec", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idSec;
+
+
+}

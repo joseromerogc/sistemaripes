@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Acme\DemoBundle\Entity\Usuarios" table="usuarios">
+    <unique-constraints>
+      <unique-constraint name="nom_usr" columns="nom_usr"/>
+    </unique-constraints>
+    <id name="idUsr" type="integer" column="id_usr">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="nomUsr" type="string" column="nom_usr" length="30" nullable="false"/>
+    <field name="pswUsr" type="string" column="psw_usr" length="60" nullable="false"/>
+    <field name="tipoUsr" type="string" column="tipo_usr" length="20" nullable="false"/>
+  </entity>
+</doctrine-mapping>

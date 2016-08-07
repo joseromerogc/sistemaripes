@@ -1,0 +1,42 @@
+<?php
+
+namespace Acme\DemoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Municipios
+ *
+ * @ORM\Table(name="municipios", indexes={@ORM\Index(name="id_estado", columns={"id_estado"})})
+ * @ORM\Entity
+ */
+class Municipios
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="municipio", type="string", length=100, nullable=false)
+     */
+    private $municipio;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_municipio", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idMunicipio;
+
+    /**
+     * @var \Acme\DemoBundle\Entity\Estados
+     *
+     * @ORM\ManyToOne(targetEntity="Acme\DemoBundle\Entity\Estados")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_estado", referencedColumnName="id_estado")
+     * })
+     */
+    private $idEstado;
+
+
+}

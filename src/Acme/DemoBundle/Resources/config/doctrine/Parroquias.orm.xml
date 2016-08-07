@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Acme\DemoBundle\Entity\Parroquias" table="parroquias">
+    <indexes>
+      <index name="id_municipio" columns="id_municipio"/>
+    </indexes>
+    <id name="idParroquia" type="integer" column="id_parroquia">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="parroquia" type="string" column="parroquia" length="250" nullable="false"/>
+    <many-to-one field="idMunicipio" target-entity="Municipios">
+      <join-columns>
+        <join-column name="id_municipio" referenced-column-name="id_municipio"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,49 @@
+<?php
+
+namespace Acme\DemoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Ciudades
+ *
+ * @ORM\Table(name="ciudades", indexes={@ORM\Index(name="id_estado", columns={"id_estado"})})
+ * @ORM\Entity
+ */
+class Ciudades
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ciudad", type="string", length=200, nullable=false)
+     */
+    private $ciudad;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="capital", type="boolean", nullable=false)
+     */
+    private $capital;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_ciudad", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idCiudad;
+
+    /**
+     * @var \Acme\DemoBundle\Entity\Estados
+     *
+     * @ORM\ManyToOne(targetEntity="Acme\DemoBundle\Entity\Estados")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_estado", referencedColumnName="id_estado")
+     * })
+     */
+    private $idEstado;
+
+
+}
